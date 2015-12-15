@@ -1,0 +1,23 @@
+<div id="notifications-wrap">
+	<div data-ng-repeat="notification in notifications | filter:{position: seNotificationsPosition}:true"
+		data-ng-class="{'alert-danger': notification.severity === 'ERROR', 'alert-info': notification.severity === 'INFO'}"
+		class="se-animation-right-to-left container-fluid alert alert-dismissable notification fade in {{seNotificationsClass}}"
+		role="alert">
+		<button type="button" class="close icon icon-x" data-dismiss="alert" aria-label="Close" data-ng-click="markAsRead(notification)"><span aria-hidden="true">&times;</span></button>
+
+		<div data-ng-switch="notification.type" class="notification-text">
+			<div data-ng-switch-when="TEXT">
+				{{notification.template | translate:notification.parameters}}
+			</div>
+			<div data-ng-show="DEBUG_ENABLED" data-ng-if="notification.debugInfo">
+				<textarea data-ng-model="notification.debugInfo"
+					data-dm-validation-group-skip="true"
+					rows="1" cols="25"
+				></textarea>
+			</div>
+			<div data-ng-switch-default>
+				{{'error.notifications.unknownType' | translate:notification}}
+			</div>
+		</div>
+	</div>
+</div>

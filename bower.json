@@ -1,0 +1,56 @@
+{
+  "name": "angular-se-notifications",
+  "version": "0.0.3",
+  "dependencies": {
+    "angular": "~1.4.3",
+    "angular-translate": "~2.7.2",
+    "restangular": "~1.5.1",
+    "lodash": "~3.10.1",
+    "bootstrap": "~3.3.5",
+    "angular-se-event-helper-service": "~0.0.1"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.4.3",
+    "angular-scenario": "~1.4.3"
+  },
+  "homepage": "https://github.com/setelis/angular-se-notifications",
+  "authors": [
+    "Plamen Tanov <ptanov@setelis.com>"
+  ],
+  "description": "Notifications helps in displaying info and error messages to the users.",
+  "main": [
+     "src/seFormsModule.js",
+     "src/seCheckboxListDirective.js",
+     "src/seValidationConstraintsService.js",
+     "src/isShowModelValidationFlagSetFilter.js",
+     "src/seValidationTooltipDirective.js",
+     "src/seValidationLabelDirective.js",
+     "src/seValidationButtonDirective.js",
+     "src/seValidationFormDirective.js",
+     "src/seUndefinedIfEmptyDirective.js",
+     "src/seValidateEqualityDirective.js",
+     "src/seValidateExternalDirective.js",
+     "src/seFormsTranslations.bg.js",
+     "src/seFormsTranslations.en.js",
+     "src/seFormsTranslations.js",
+     "gen/seFormsHtml.js"
+  ],
+
+  "keywords": [
+    "angular",
+    "notifications",
+    "helper",
+    "error",
+    "info"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "demo",
+    "flow"
+  ]
+}
