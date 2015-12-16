@@ -1,0 +1,85 @@
+<html data-ng-app="seFormsDemoApp" data-ng-controller="DemoCtrl as demoCtrl">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>seNotificationsDemoApp</title>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css" />
+		<style>
+			.highlighted.has-error input {
+				border-color: #ff0000;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div class="notifications se-animation-showhide" data-se-notifications data-se-notifications-position="BAR"></div>
+
+		<p>
+			value:
+			{{demoCtrl.member | json}}
+		</p>
+		<p>
+			Click the button without entering information:
+
+		</p>
+
+		<form name="exampleForm" data-se-validation-form="MemberDTO">
+			<div class="">
+				required:
+				<input data-ng-model="demoCtrl.member.name" />
+			</div>
+			<div class="">
+				required, number:
+				<input data-ng-model="demoCtrl.member.number" />
+
+			</div>
+
+
+			alert() will be called only if validation is passed:
+			<button type="button" data-ng-click="demoCtrl.save()" data-se-validation-button>Save</button>
+		</form>
+
+
+		if empty string - value will be undefined:
+		<input data-ng-model="demoCtrl.undefinedifempty" data-se-undefined-if-empty />
+		undefined if empty: {{demoCtrl.undefinedifempty | json}}
+		<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/restangular/1.5.1/restangular.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate/2.8.1/angular-translate.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-animate.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.js"></script>
+
+		<script src="libs/seEventHelperService.js"></script>
+
+
+		<script src="libs/seNotifications/seNotificationsModule.js"></script>
+		<script src="libs/seNotifications/seNotificationsService.js"></script>
+		<script src="libs/seNotifications/seNotificationsDirective.js"></script>
+		<script src="libs/seNotifications/seNotificationsLoggerService.js"></script>
+		<script src="libs/seNotifications/seNotificationsTranslations.js"></script>
+		<script src="libs/seNotifications/seNotificationsTranslations.bg.js"></script>
+		<script src="libs/seNotifications/seNotificationsTranslations.en.js"></script>
+		<script src="libs/seNotifications/seNotificationsVersion.js"></script>
+		<script src="libs/seNotifications/seNotificationsHtml.js"></script>
+
+		<script src="../src/seFormsModule.js"></script>
+      <script src="../src/seCheckboxListDirective.js"></script>
+      <script src="../src/seValidationConstraintsService.js"></script>
+      <script src="../src/isShowModelValidationFlagSetFilter.js"></script>
+		<script src="../src/seValidationTooltipDirective.js"></script>
+		<script src="../src/seValidationLabelDirective.js"></script>
+      <script src="../src/seValidationButtonDirective.js"></script>
+      <script src="../src/seValidationFormDirective.js"></script>
+      <script src="../src/seUndefinedIfEmptyDirective.js"></script>
+      <script src="../src/seValidateEqualityDirective.js"></script>
+      <script src="../src/seValidateExternalDirective.js"></script>
+      <script src="../src/seFormsTranslations.bg.js"></script>
+      <script src="../src/seFormsTranslations.en.js"></script>
+		<script src="../src/seFormsTranslations.js"></script>
+		<script src="../gen/seFormsHtml.js"></script>
+
+		<script src="scripts/demoCtrl.js"></script>
+	</body>
+</html>
