@@ -1,6 +1,6 @@
 {
   "name": "angular-se-notifications",
-  "version": "0.0.3",
+  "version": "0.0.1",
   "dependencies": {
     "angular": "~1.4.3",
     "angular-translate": "~2.7.2",
