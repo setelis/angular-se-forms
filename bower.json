@@ -1,5 +1,5 @@
 {
-  "name": "angular-se-notifications",
+  "name": "angular-se-forms",
   "version": "0.0.1",
   "dependencies": {
     "angular": "~1.4.3",
@@ -13,11 +13,11 @@
     "angular-mocks": "~1.4.3",
     "angular-scenario": "~1.4.3"
   },
-  "homepage": "https://github.com/setelis/angular-se-notifications",
+  "homepage": "https://github.com/setelis/angular-se-forms",
   "authors": [
     "Plamen Tanov <ptanov@setelis.com>"
   ],
-  "description": "Notifications helps in displaying info and error messages to the users.",
+  "description": "Form and validation tools used in many Setelis projects.",
   "main": [
      "src/seFormsModule.js",
      "src/seCheckboxListDirective.js",
@@ -38,10 +38,8 @@
 
   "keywords": [
     "angular",
-    "notifications",
-    "helper",
-    "error",
-    "info"
+    "forms",
+    "validation"
   ],
   "license": "MIT",
   "ignore": [
