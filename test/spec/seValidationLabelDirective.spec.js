@@ -30,7 +30,7 @@ describe("seValidationLabel", function () {
 
 	it("should fill isolated scope", inject(function () {
 		element = angular.element("<form name='emailForm'><div data-se-validation-label='email-input' ></div>" +
-			"<input id='email-input' name='emailName' data-se-form-constraints-message='{\"type\": \"String\", \"constraints\": "+
+			"<input id='email-input' name='emailName' data-se-forms-constraints-message='{\"type\": \"String\", \"constraints\": "+
 			"[{\"name\": \"required\", \"message\": \"hello\"}]}' data-ng-required='true'></input></form>");
 		expect(element.find("label").length).toBe(0);
 		element = $compile(element)(scope);
@@ -50,7 +50,7 @@ describe("seValidationLabel", function () {
 
 	it("should support data-name", inject(function () {
 		element = angular.element("<form name='emailForm'><div data-se-validation-label='email-input' ></div>" +
-			"<input id='email-input' data-name='emailName' data-se-form-constraints-message='{\"type\": \"String\", \"constraints\": "+
+			"<input id='email-input' data-name='emailName' data-se-forms-constraints-message='{\"type\": \"String\", \"constraints\": "+
 			"[{\"name\": \"required\", \"message\": \"hello\"}]}' data-ng-required='true'></input></form>");
 		expect(element.find("label").length).toBe(0);
 		element = $compile(element)(scope);
@@ -67,7 +67,7 @@ describe("seValidationLabel", function () {
 	}));
 	it("should support message", inject(function () {
 		element = angular.element("<form name='emailForm'><div data-se-validation-label='email-input' ></div>" +
-			"<input id='email-input' data-name='emailName' data-se-form-constraints-message='{\"type\": \"String\", \"constraints\": "+
+			"<input id='email-input' data-name='emailName' data-se-forms-constraints-message='{\"type\": \"String\", \"constraints\": "+
 			"[{\"name\": \"required\", \"message\": \"hello\", \"value\": \"true\"}]}' " +
 			" data-ng-required='true'></input></form>");
 		expect(element.find("label").length).toBe(0);
@@ -167,8 +167,8 @@ describe("seValidationLabel", function () {
 		it("should return serverLiveValidation if available", inject(function () {
 			checkErrorMessage("serverLiveValidation");
 		}));
-		it("should return ceValidateExternal if available", inject(function () {
-			checkErrorMessage("ceValidateExternal");
+		it("should return seValidateExternal if available", inject(function () {
+			checkErrorMessage("seValidateExternal");
 		}));
 		it("should return serverValidation if available and there are others", inject(function () {
 			checkErrorMessage("serverValidation", ["hello", "world"]);
@@ -176,8 +176,8 @@ describe("seValidationLabel", function () {
 		it("should return serverLiveValidation if available and there are others", inject(function () {
 			checkErrorMessage("serverLiveValidation", ["hello", "world"]);
 		}));
-		it("should return ceValidateExternal if available and there are others", inject(function () {
-			checkErrorMessage("ceValidateExternal", ["hello", "world"]);
+		it("should return seValidateExternal if available and there are others", inject(function () {
+			checkErrorMessage("seValidateExternal", ["hello", "world"]);
 		}));
 
 		it("should show error show model validation is and there is error", inject(function () {
@@ -245,7 +245,7 @@ describe("seValidationLabel", function () {
 
 				// {{('validations.' + (elementData['ceValidationLabelCustom'+constraint.name]|| constraint.message)) | translate:constraint}}
 				element = angular.element("<form name='emailForm'><div data-se-validation-label='email-input' ></div>" +
-					"<input id='email-input' data-name='emailName' data-se-form-constraints-message='"+
+					"<input id='email-input' data-name='emailName' data-se-forms-constraints-message='"+
 					"{\"type\": \"String\", \"constraints\": [{\"name\": \"required\"}]}' " +
 					"data-ng-required='true' data-ng-model='model.email'></input></form>");
 				element = $compile(element)(scope);
@@ -267,7 +267,7 @@ describe("seValidationLabel", function () {
 			it("field constraints and type is not email, with message", inject(function () {
 				// {{('validations.' + (elementData['ceValidationLabelCustom'+constraint.name]|| constraint.message)) | translate:constraint}}
 				element = angular.element("<form name='emailForm'><div data-se-validation-label='email-input' ></div>" +
-					"<input id='email-input' data-name='emailName' data-se-form-constraints-message='"+
+					"<input id='email-input' data-name='emailName' data-se-forms-constraints-message='"+
 					"{\"type\": \"String\", \"constraints\": [{\"name\": \"required\", \"message\": \"helloworld\"}]}' " +
 					"data-ng-required='true' data-ng-model='model.email'></input></form>");
 				element = $compile(element)(scope);
@@ -290,7 +290,7 @@ describe("seValidationLabel", function () {
 			it("field constraints and type is not email and there is ceValidationLabelCustom", inject(function () {
 				// {{('validations.' + (elementData['ceValidationLabelCustom'+constraint.name]|| constraint.message)) | translate:constraint}}
 				element = angular.element("<form name='emailForm'><div data-se-validation-label='email-input' ></div>" +
-					"<input id='email-input' data-name='emailName' data-se-form-constraints-message='"+
+					"<input id='email-input' data-name='emailName' data-se-forms-constraints-message='"+
 					"{\"type\": \"String\", \"constraints\": [{\"name\": \"required\", \"message\": \"helloworld\"}]}' " +
 					"data-se-validation-group-message-required='error1' data-ng-required='true' data-ng-model='model.email'></input></form>");
 				element = $compile(element)(scope);
@@ -312,7 +312,7 @@ describe("seValidationLabel", function () {
 			it("field constraints and type is not email and there is ceValidationLabelCustom, no field message", inject(function () {
 				// {{('validations.' + (elementData['ceValidationLabelCustom'+constraint.name]|| constraint.message)) | translate:constraint}}
 				element = angular.element("<form name='emailForm'><div data-se-validation-label='email-input' ></div>" +
-					"<input id='email-input' data-name='emailName' data-se-form-constraints-message='{\"type\": \"String\", \"constraints\": [{\"name\": \"required\"}]}' " +
+					"<input id='email-input' data-name='emailName' data-se-forms-constraints-message='{\"type\": \"String\", \"constraints\": [{\"name\": \"required\"}]}' " +
 					"data-se-validation-group-message-required='error1' data-ng-required='true' data-ng-model='model.email'></input></form>");
 				element = $compile(element)(scope);
 				scope.$digest();
@@ -336,7 +336,7 @@ describe("seValidationLabel", function () {
 				// same as validations.email in language
 			// {{'validations.{org.hibernate.validator.constraints.Email.message}' | translate}}
 				element = angular.element("<form name='emailForm'><div data-se-validation-label='email-input' ></div>" +
-					"<input id='email-input' data-name='emailName' data-se-form-constraints-message='{\"type\": \"String\", \"constraints\": [{\"name\": \"email\"}]}' " +
+					"<input id='email-input' data-name='emailName' data-se-forms-constraints-message='{\"type\": \"String\", \"constraints\": [{\"name\": \"email\"}]}' " +
 					"data-ng-model='model.email' type='email'></input></form>");
 				element = $compile(element)(scope);
 				scope.$digest();
@@ -392,7 +392,7 @@ describe("seValidationLabel", function () {
 					// {{('validations.' + $seValidationLabelParent[formName][inputName].serverValidation.template) | translate}}
 				// </label>
 				element = angular.element("<form name='emailForm'><div data-se-validation-label='email-input' ></div>" +
-					"<input id='email-input' data-name='emailName' data-se-form-constraints-message='{\"type\": \"String\", \"constraints\": [{\"name\": \"email\"}]}' " +
+					"<input id='email-input' data-name='emailName' data-se-forms-constraints-message='{\"type\": \"String\", \"constraints\": [{\"name\": \"email\"}]}' " +
 					"data-ng-model='model.email' type='email'></input></form>");
 				element = $compile(element)(scope);
 				scope.$digest();
@@ -417,7 +417,7 @@ describe("seValidationLabel", function () {
 					// {{('validations.' + $seValidationLabelParent[formName][inputName].serverValidation.template) | translate}}
 				// </label>
 				element = angular.element("<form name='emailForm'><div data-se-validation-label='email-input' ></div>" +
-					"<input id='email-input' data-name='emailName' data-se-form-constraints-message='{\"type\": \"String\", \"constraints\": [{\"name\": \"email\"}]}' " +
+					"<input id='email-input' data-name='emailName' data-se-forms-constraints-message='{\"type\": \"String\", \"constraints\": [{\"name\": \"email\"}]}' " +
 					"data-se-validation-group-message-serverValidation='hellowworld4' "+
 					"data-ng-model='model.email' type='email'></input></form>");
 				element = $compile(element)(scope);
@@ -443,7 +443,7 @@ describe("seValidationLabel", function () {
 					// {{('validations.' + $seValidationLabelParent[formName][inputName].serverValidation.template) | translate}}
 				// </label>
 				element = angular.element("<form name='emailForm'><div data-se-validation-label='email-input' ></div>" +
-					"<input id='email-input' data-name='emailName' data-se-form-constraints-message='{\"type\": \"String\", \"constraints\": [{\"name\": \"email\"}]}' " +
+					"<input id='email-input' data-name='emailName' data-se-forms-constraints-message='{\"type\": \"String\", \"constraints\": [{\"name\": \"email\"}]}' " +
 					"data-se-validation-group-message-serverValidation='hellowworld4' "+
 					"data-ng-model='model.email' type='email'></input></form>");
 				element = $compile(element)(scope);
@@ -470,7 +470,7 @@ describe("seValidationLabel", function () {
 					// {{('validations.' + $seValidationLabelParent[formName][inputName].serverLiveValidation.template) | translate}}
 				// </label>
 				element = angular.element("<form name='emailForm'><div data-se-validation-label='email-input' ></div>" +
-					"<input id='email-input' data-name='emailName' data-se-form-constraints-message='{\"type\": \"String\", \"constraints\": [{\"name\": \"email\"}]}' " +
+					"<input id='email-input' data-name='emailName' data-se-forms-constraints-message='{\"type\": \"String\", \"constraints\": [{\"name\": \"email\"}]}' " +
 					"data-ng-model='model.email' type='email'></input></form>");
 				element = $compile(element)(scope);
 				scope.$digest();
@@ -495,7 +495,7 @@ describe("seValidationLabel", function () {
 					// {{('validations.' + $seValidationLabelParent[formName][inputName].serverLiveValidation.template) | translate}}
 				// </label>
 				element = angular.element("<form name='emailForm'><div data-se-validation-label='email-input' ></div>" +
-					"<input id='email-input' data-name='emailName' data-se-form-constraints-message='{\"type\": \"String\", \"constraints\": [{\"name\": \"email\"}]}' " +
+					"<input id='email-input' data-name='emailName' data-se-forms-constraints-message='{\"type\": \"String\", \"constraints\": [{\"name\": \"email\"}]}' " +
 					"data-ng-model='model.email' type='email'></input></form>");
 				element = $compile(element)(scope);
 				scope.$digest();
@@ -520,7 +520,7 @@ describe("seValidationLabel", function () {
 					// {{('validations.' + $seValidationLabelParent[formName][inputName].serverLiveValidation.template) | translate}}
 				// </label>
 				element = angular.element("<form name='emailForm'><div data-se-validation-label='email-input' ></div>" +
-					"<input id='email-input' data-name='emailName' data-se-form-constraints-message='{\"type\": \"String\", \"constraints\": [{\"name\": \"email\"}]}' " +
+					"<input id='email-input' data-name='emailName' data-se-forms-constraints-message='{\"type\": \"String\", \"constraints\": [{\"name\": \"email\"}]}' " +
 					"data-se-validation-group-message-serverLiveValidation='hellowworld3' " +
 					"data-ng-model='model.email' type='email'></input></form>");
 				element = $compile(element)(scope);
@@ -541,15 +541,15 @@ describe("seValidationLabel", function () {
 
 			}));
 		});
-		describe("ceValidateExternal", function() {
-			it("ceValidateExternal", inject(function () {
+		describe("seValidateExternal", function() {
+			it("seValidateExternal", inject(function () {
 				// <label class="control-label"
 					// data-ng-if="$seValidationLabelParent[formName][inputName].$error.ceExternalValidation">
 					// {{('validations.' + $seValidationLabelParent[formName][inputName].ceExternalValidation) | translate}}
 				// </label>
 
 				element = angular.element("<form name='emailForm'><div data-se-validation-label='email-input' ></div>" +
-					"<input id='email-input' data-name='emailName' data-se-form-constraints-message='{\"type\": \"String\", \"constraints\": [{\"name\": \"email\"}]}' " +
+					"<input id='email-input' data-name='emailName' data-se-forms-constraints-message='{\"type\": \"String\", \"constraints\": [{\"name\": \"email\"}]}' " +
 					"data-se-validation-group-message-serverLiveValidation='hellowworld3' " +
 					"data-ng-model='model.email' type='email'></input></form>");
 				element = $compile(element)(scope);
@@ -561,8 +561,8 @@ describe("seValidationLabel", function () {
 				expect(isolatedScope.errorMessageContext).toBe(null);
 
 				expect(isolatedScope.$seValidationLabelParent.emailForm.showModelValidation).not.toBe(true);
-				controller.$error.ceValidateExternal = true;
-				isolatedScope.$seValidationLabelParent.emailForm.emailName.ceValidateExternal = "hellowworld6";
+				controller.$error.seValidateExternal = true;
+				isolatedScope.$seValidationLabelParent.emailForm.emailName.seValidateExternal = "hellowworld6";
 
 				scope.$digest();
 				expect(isolatedScope.errorMessage).toBe("hellowworld6");
@@ -580,7 +580,7 @@ describe("seValidationLabel", function () {
 
 				element = angular.element("<form name='emailForm'><div data-se-validation-label='email-input' ></div>" +
 					"<input id='email-input' data-name='emailName' "+
-					"data-se-form-constraints-message='{\"type\": \"Integer\", \"constraints\": [{\"name\": \"pattern\", \"value\": \"a\", \"message\": \"z\"}]}' " +
+					"data-se-forms-constraints-message='{\"type\": \"Integer\", \"constraints\": [{\"name\": \"pattern\", \"value\": \"a\", \"message\": \"z\"}]}' " +
 					"data-se-validation-group-message-serverLiveValidation='hellowworld3' " +
 					"data-ng-model='model.email' type='text'></input></form>");
 				element = $compile(element)(scope);
@@ -610,7 +610,7 @@ describe("seValidationLabel", function () {
 
 				element = angular.element("<form name='emailForm'><div data-se-validation-label='email-input' ></div>" +
 					"<input id='email-input' data-name='emailName' "+
-					"data-se-form-constraints-message='{\"type\": \"Integer\", \"constraints\": [{\"name\": \"number\", \"value\": \"a\", \"message\": \"z\"}]}' " +
+					"data-se-forms-constraints-message='{\"type\": \"Integer\", \"constraints\": [{\"name\": \"number\", \"value\": \"a\", \"message\": \"z\"}]}' " +
 					"data-ng-model='model.email' type='text'></input></form>");
 				element = $compile(element)(scope);
 				scope.$digest();
@@ -639,7 +639,7 @@ describe("seValidationLabel", function () {
 
 				element = angular.element("<form name='emailForm'><div data-se-validation-label='email-input' ></div>" +
 					"<input id='email-input' data-name='emailName' "+
-					"data-se-form-constraints-message='{\"type\": \"Integer\", \"constraints\": [{\"name\": \"number\", \"value\": \"a\", \"message\": \"z\"}]}' " +
+					"data-se-forms-constraints-message='{\"type\": \"Integer\", \"constraints\": [{\"name\": \"number\", \"value\": \"a\", \"message\": \"z\"}]}' " +
 					"data-se-validation-group-message-number='hellowworld7' " +
 					"data-ng-model='model.email' type='text'></input></form>");
 				element = $compile(element)(scope);

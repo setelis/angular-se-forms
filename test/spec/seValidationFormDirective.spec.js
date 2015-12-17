@@ -147,7 +147,7 @@ describe("seValidationForm", function () {
 			element = $compile(element)(scope);
 			scope.$digest();
 			var input = element.find("input");
-			expect(angular.fromJson(input.attr("data-se-form-constraints-message"))).toEqual(configuration.dtoName.singleConstraint);
+			expect(angular.fromJson(input.attr("data-se-forms-constraints-message"))).toEqual(configuration.dtoName.singleConstraint);
 		}));
 		it("should add required handler", inject(function () {
 			element = angular.element("<form name='emailForm'>"+
@@ -366,13 +366,13 @@ describe("seValidationForm", function () {
 			element = $compile(element)(scope);
 			scope.$digest();
 			var input1 = element.find("#input1");
-			expect(input1.data("se-form-constraints-message")).toEqual(configuration.dtoName.singleConstraint);
+			expect(input1.data("se-forms-constraints-message")).toEqual(configuration.dtoName.singleConstraint);
 
 			var input2 = element.find("#input2");
-			expect(input2.data("se-form-constraints-message")).toEqual(configuration.dtoName.allStringConstraints);
+			expect(input2.data("se-forms-constraints-message")).toEqual(configuration.dtoName.allStringConstraints);
 
 			var input3 = element.find("#input3");
-			expect(input3.data("se-form-constraints-message")).toEqual(configuration.dtoName.allIntConstraints);
+			expect(input3.data("se-forms-constraints-message")).toEqual(configuration.dtoName.allIntConstraints);
 		}));
 		it("should do nothing if constraint is not defined", inject(function () {
 			element = angular.element("<form name='emailForm'>"+
@@ -383,7 +383,7 @@ describe("seValidationForm", function () {
 			element = $compile(element)(scope);
 			scope.$digest();
 			var input = element.find("#input");
-			expect(input.data("se-form-constraints-message")).toBeUndefined();
+			expect(input.data("se-forms-constraints-message")).toBeUndefined();
 		}));
 		it("should remove required handler if no required in model", inject(function () {
 			function expectNoRequired(element) {
@@ -535,7 +535,7 @@ describe("seValidationForm", function () {
 			// var validationDiv = element.find("div[data-se-validation-label='input3']");
 			// expect(validationDiv.length).toBe(1);
 
-			// var data = element.find("input").data("se-form-constraints-message");
+			// var data = element.find("input").data("se-forms-constraints-message");
 			// expect(data).toEqual({
 				// "type":"String",
 				// "constraints":[
@@ -579,7 +579,7 @@ describe("seValidationForm", function () {
 			scope.$digest();
 
 			var input = element.find("#input3");
-			expect(angular.fromJson(input.attr("data-se-form-constraints-message"))).toEqual({
+			expect(angular.fromJson(input.attr("data-se-forms-constraints-message"))).toEqual({
 				type: "String",
 				constraints: [{
 					name: "maxlength",
@@ -624,7 +624,7 @@ describe("seValidationForm", function () {
 			scope.$digest();
 
 			var input = element.find("#input3");
-			expect(angular.fromJson(input.attr("data-se-form-constraints-message"))).toEqual({
+			expect(angular.fromJson(input.attr("data-se-forms-constraints-message"))).toEqual({
 				type: "String",
 				constraints: [{
 					name: "minlength",

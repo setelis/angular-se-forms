@@ -29,10 +29,10 @@ module.exports = function (grunt) {
 	}
 	function initConfig() {
 		function getValidateTasks(allTasks) {
-			if (process.env.SENOTIFICATIONS_FAST === "true") {
+			if (process.env.SEFORMS_FAST === "true") {
 				return [];
 			}
-			if (process.env.SENOTIFICATIONS_W3C_LOCAL_URL && allTasks) {
+			if (process.env.SEFORMS_W3C_LOCAL_URL && allTasks) {
 				return [
 					"jshint",
 					"karma:unit",
@@ -286,9 +286,9 @@ module.exports = function (grunt) {
 					wrapping: {
 						"tr": "<table>{0}</table>"
 					},
-					w3clocal: process.env.SENOTIFICATIONS_W3C_LOCAL_URL?process.env.SENOTIFICATIONS_W3C_LOCAL_URL:null,
+					w3clocal: process.env.SEFORMS_W3C_LOCAL_URL?process.env.SEFORMS_W3C_LOCAL_URL:null,
 					//i'm not sure why in local instalation these errors exists:
-					relaxerror: process.env.SENOTIFICATIONS_W3C_LOCAL_URL?[
+					relaxerror: process.env.SEFORMS_W3C_LOCAL_URL?[
 						"The date input type is not supported in all browsers. Please be sure to test, and consider using a polyfill.",
 
 						"The Content-Type was text/html. Using the HTML parser.",
@@ -380,8 +380,8 @@ module.exports = function (grunt) {
 	}
 
 	function getBrowsersForTest() {
-		if (process.env.SENOTIFICATIONS_BROWSERS_FOR_TEST) {
-			return process.env.SENOTIFICATIONS_BROWSERS_FOR_TEST.split(",");
+		if (process.env.SEFORMS_BROWSERS_FOR_TEST) {
+			return process.env.SEFORMS_BROWSERS_FOR_TEST.split(",");
 		} else {
 			return ["Chrome", "Firefox", "PhantomJS"];
 		}
