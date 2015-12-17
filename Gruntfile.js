@@ -37,7 +37,7 @@ module.exports = function (grunt) {
 					"jshint",
 					"karma:unit",
 					// "htmlangular:index",
-					// "htmlangular:continuous",
+					"htmlangular:continuous",
 					"flow:app"
 				];
 			} else {
@@ -259,7 +259,7 @@ module.exports = function (grunt) {
 					browsers: getBrowsersForTest(),
 					/* coverage */
 					preprocessors: {
-						"<%= files.scripts %>": ["coverage"]
+						"src/**/*.js": ["coverage"]
 					},
 					// add the coverage plugin
 					plugins: [ "karma-jasmine", "karma-firefox-launcher", "karma-chrome-launcher", "karma-phantomjs-launcher", "karma-coverage", "karma-junit-reporter"],
@@ -354,7 +354,7 @@ module.exports = function (grunt) {
 		//update buildnotminified as described in comment
 		grunt.registerTask("build", [
 			// "prepare",
-			// "test",
+			"test",
 			// "concurrent:dist",
 			"copy:src",
 			"copy:css",
