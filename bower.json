@@ -1,6 +1,6 @@
 {
   "name": "angular-se-forms",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "dependencies": {
     "angular": "~1.4.3",
     "angular-translate": "~2.7.2",
@@ -22,6 +22,7 @@
      "src/seFormsModule.js",
      "src/seCheckboxListDirective.js",
      "src/seValidationConstraintsService.js",
+     "src/seValidationConstraintsConfiguration.js",
      "src/isShowModelValidationFlagSetFilter.js",
      "src/seValidationTooltipDirective.js",
      "src/seValidationLabelDirective.js",
