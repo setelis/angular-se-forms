@@ -13,7 +13,8 @@ Form and validation tools used in many Setelis projects.
  - Add library to your project: ```bower install angular-se-forms --save```
  - Add module to your project: ```angular.module("DemoApp", ["seForms"])...```
 
- - TODO
+
+ - TODO see demo for how to use: http://setelis.github.io/angular-se-forms/demo/
 
 # Dependencies:
  - bootstrap - tooltips

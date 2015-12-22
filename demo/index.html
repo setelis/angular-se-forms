@@ -36,7 +36,10 @@
 
 
 			alert() will be called only if validation is passed:
-			<button type="button" data-ng-click="demoCtrl.save()" data-se-validation-button>Save</button>
+			action should be confirmed too:
+			<div>
+				<button type="button" data-ng-click="demoCtrl.save()" data-se-confirmation data-se-validation-button>Save</button>
+			</div>
 		</form>
 
 
@@ -78,6 +81,7 @@
       <script src="../src/seFormsTranslations.bg.js"></script>
       <script src="../src/seFormsTranslations.en.js"></script>
 		<script src="../src/seFormsTranslations.js"></script>
+		<script src="../src/seConfirmationDirective.js"></script>
 		<script src="../gen/seFormsHtml.js"></script>
 
 		<script src="scripts/demoCtrl.js"></script>
