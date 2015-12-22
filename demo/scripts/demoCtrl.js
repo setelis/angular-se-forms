@@ -41,6 +41,24 @@ angular.module("seForms.validation.constraints.service.configuration", []).value
 				value: 50
 			}]
 		},
+		password: {
+			constraints: [{
+				name: "required",
+				value: "true"
+			}, {
+				name: "maxlength",
+				value: 50
+			}]
+		},
+		$$passwordAgain: {
+			constraints: [{
+				name: "required",
+				value: "true"
+			}, {
+				name: "maxlength",
+				value: 50
+			}]
+		},
 		number: {
 			constraints: [{
 				name: "number",

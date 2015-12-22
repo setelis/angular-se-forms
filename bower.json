@@ -41,7 +41,9 @@
   "keywords": [
     "angular",
     "forms",
-    "validation"
+    "validation",
+    "password",
+    "equality"
   ],
   "license": "MIT",
   "ignore": [

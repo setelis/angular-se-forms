@@ -34,6 +34,19 @@
 
 			</div>
 
+			<div>
+				password:
+					<input type="password"
+						data-ng-model="demoCtrl.member.password" />
+			</div>
+			<div>
+				retype password:
+					<input type="password"
+						data-se-validate-equality="demoCtrl.member.password"
+						data-ng-model="demoCtrl.member.$$passwordAgain" />
+			</div>
+
+
 
 			alert() will be called only if validation is passed:
 			action should be confirmed too:
