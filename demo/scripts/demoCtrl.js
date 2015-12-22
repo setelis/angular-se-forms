@@ -20,6 +20,11 @@ angular.module("seFormsDemoApp", ["seForms", "ngAnimate", "restangular"]).contro
 	"use strict";
 	$translateProvider.preferredLanguage("en");
 	$translateProvider.useSanitizeValueStrategy("escape");
+	$translateProvider.translations("en", {
+		"button.ok": "OK",
+		"button.cancel": "Cancel",
+		"label.confirm": "Are you sure?"
+	});
 
 });
 angular.module("seForms.validation.constraints.service.configuration", []).value("SeValidationConstraintsConfiguration", {
