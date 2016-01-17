@@ -156,7 +156,7 @@ angular.module("seForms.validation.directive", ["seForms.validation.constraints.
 					if (!element.attr("name")) {
 						$log.error("seValidationForm: input should have name", element, parent);
 					} else if(!element.is("input[type='checkbox']") && !checkEqualName(element.data("ng-model"), element.attr("name"))) {
-						$log.error("seValidationForm: input name does not match", element.data("ng-model"), element.attr("name"), element, parent);
+						$log.error("seValidationForm: input name does not match ng-model name", getNameFromNgModel(element.data("ng-model")), element.attr("name"), element, parent);
 					}
 				}
 			},
@@ -172,7 +172,7 @@ angular.module("seForms.validation.directive", ["seForms.validation.constraints.
 					if (!element.attr("name")) {
 						$log.error("seValidationForm: textarea should have name", element, parent);
 					} else if(!checkEqualName(element.data("ng-model"), element.attr("name"))) {
-						$log.error("seValidationForm: textarea name does not match", element, parent);
+						$log.error("seValidationForm: textarea name does not match ng-model name", getNameFromNgModel(element.data("ng-model")), element.attr("name"), element, parent);
 					}
 				}
 			},
@@ -188,7 +188,7 @@ angular.module("seForms.validation.directive", ["seForms.validation.constraints.
 					if (!element.attr("name")) {
 						$log.error("seValidationForm: select should have name", element, parent);
 					} else if(!checkEqualName(element.data("ng-model"), element.attr("name"))) {
-						$log.error("seValidationForm: select name does not match", element, parent);
+						$log.error("seValidationForm: select name does not match ng-model name", getNameFromNgModel(element.data("ng-model")), element.attr("name"), element, parent);
 					}
 				}
 			},
@@ -204,7 +204,7 @@ angular.module("seForms.validation.directive", ["seForms.validation.constraints.
 					if (!element.attr("data-name")) {
 						$log.error("seValidationForm: div[data-ng-model] should have name", element, parent);
 					} else if(!checkEqualName(element.data("ng-model"), element.attr("data-name"))) {
-						$log.error("seValidationForm: div[data-ng-model] name does not match", element, parent);
+						$log.error("seValidationForm: div[data-ng-model] name does not match ng-model name", getNameFromNgModel(element.data("ng-model")), element.attr("data-name"), element, parent);
 					}
 				}
 			}
