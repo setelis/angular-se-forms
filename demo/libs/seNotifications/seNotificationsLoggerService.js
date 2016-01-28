@@ -1,6 +1,6 @@
 (function () {
 	"use strict";
-	angular.module("seNotifications.logger", ["seEventHelperService"]).service("SeNotifiactionsLoggerService", ["$injector", "$rootScope", function($injector, $rootScope) {
+	angular.module("seNotifications.logger", ["seEvents.seEventHelperService"]).service("SeNotifiactionsLoggerService", ["$injector", "$rootScope", function($injector, $rootScope) {
 		var service = this;
 		service.$$init = function() {};
 		var oldWindowOnError = window.onerror;

@@ -1,4 +1,4 @@
-angular.module("seEventHelperService", []).service("SeEventHelperService", function () {
+angular.module("seEvents.seEventHelperService", []).service("SeEventHelperService", function () {
 	"use strict";
 	var service = this;
 
