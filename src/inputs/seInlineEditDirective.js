@@ -1,4 +1,4 @@
-angular.module("seForms.inputs.inlineedit", ["seEventHelperService"]).directive("seInlineEdit", function($log, SeEventHelperService, $parse) {
+angular.module("seForms.inputs.inlineedit", ["seEvents.seEventHelperService"]).directive("seInlineEdit", function($log, SeEventHelperService, $parse) {
 	"use strict";
 	var uniqueFormName = 0;
 	var SHOW_MODEL_VALIDATION_KEY = "showModelValidation";

@@ -1,4 +1,4 @@
-angular.module("seForms.confirmation", ["seEventHelperService"]).directive("seConfirmation", function($parse, SeEventHelperService, $compile) {
+angular.module("seForms.confirmation", ["seEvents.seEventHelperService"]).directive("seConfirmation", function($parse, SeEventHelperService, $compile) {
 	"use strict";
 	return {
 		// less than ng-click as explained here: https://docs.angularjs.org/guide/migration#directives-order-of-postlink-functions-reversed
