@@ -4,6 +4,8 @@
 		<title>seFormsDemoApp</title>
 
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.14.1/select.css" />
+		<link rel="stylesheet" href="../css/seForms.css" />
 		<style>
 			.highlighted.has-error input {
 				border-color: #ff0000;
@@ -23,7 +25,7 @@
 
 		</p>
 
-		<form name="exampleForm" data-se-validation-form="MemberDTO">
+		<form name="exampleForm" novalidate data-se-validation-form="MemberDTO">
 			<div class="">
 				required:
 				<input data-ng-model="demoCtrl.member.name" />
@@ -51,7 +53,28 @@
 						data-ng-model="demoCtrl.member.$$passwordAgain" />
 			</div>
 
+			<div class="form-group col-sm-12">
+				<label class="col-sm-2 control-label">Inline edit</label>
+				<div class="col-sm-10">
+					<div data-se-inline-edit style="display: inline;">
+						{{demoCtrl.member.comment}}
+						<div data-se-inline-edit-form>
+							<div data-se-form-validation="MemberDTO">
+								<div>
+									<input type="text" class="form-control" data-ng-model="demoCtrl.member.comment" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
+			<div class="form-group col-sm-12">
+				<label class="col-sm-2 control-label">Reference data</label>
+				<div class="col-sm-10">
+					<div data-ng-model="demoCtrl.member.country" data-se-reference-data-picker="countries"></div>
+				</div>
+			</div>
 
 			alert() will be called only if validation is passed:
 			action should be confirmed too:
@@ -71,6 +94,12 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-translate/2.8.1/angular-translate.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-animate.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.14.1/select.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.4.5/angular-sanitize.js"></script>
+
+
+
+
 
 		<script src="libs/seEventHelperService.js"></script>
 
@@ -86,16 +115,21 @@
 		<script src="libs/seNotifications/seNotificationsHtml.js"></script>
 
 		<script src="../src/seFormsModule.js"></script>
-      <script src="../src/seCheckboxListDirective.js"></script>
-      <script src="../src/seValidationConstraintsService.js"></script>
-      <script src="../src/isShowModelValidationFlagSetFilter.js"></script>
-		<script src="../src/seValidationTooltipDirective.js"></script>
-		<script src="../src/seValidationLabelDirective.js"></script>
-      <script src="../src/seValidationButtonDirective.js"></script>
-      <script src="../src/seValidationFormDirective.js"></script>
-      <script src="../src/seUndefinedIfEmptyDirective.js"></script>
-      <script src="../src/seValidateEqualityDirective.js"></script>
-      <script src="../src/seValidateExternalDirective.js"></script>
+      <script src="../src/inputs/seCheckboxListDirective.js"></script>
+      <script src="../src/validation/seValidationConstraintsService.js"></script>
+      <script src="../src/validation/isShowModelValidationFlagSetFilter.js"></script>
+		<script src="../src/validation/seValidationTooltipDirective.js"></script>
+		<script src="../src/validation/seValidationLabelDirective.js"></script>
+      <script src="../src/validation/seValidationButtonDirective.js"></script>
+      <script src="../src/validation/seValidationFormDirective.js"></script>
+		<script src="../src/inputs/seUndefinedIfEmptyDirective.js"></script>
+		<script src="../src/inputs/seInlineEditDirective.js"></script>
+      <script src="../src/validation/seValidateEqualityDirective.js"></script>
+		<script src="../src/validation/seValidateExternalDirective.js"></script>
+
+		<script src="../src/referencedata/seReferenceDataService.js"></script>
+		<script src="../src/referencedata/seReferenceDataPickerDirective.js"></script>
+
       <script src="../src/seFormsTranslations.bg.js"></script>
       <script src="../src/seFormsTranslations.en.js"></script>
 		<script src="../src/seFormsTranslations.js"></script>

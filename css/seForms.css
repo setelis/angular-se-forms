@@ -1,0 +1,9 @@
+/* seInlineEdit */
+[data-se-inline-edit] {
+   cursor: pointer;
+   border-bottom: dashed 1px #428bca
+}
+
+.se-inline-edit-dirty {
+	font-weight: bold;
+}
