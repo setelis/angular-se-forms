@@ -77,7 +77,7 @@ angular.module("seForms.inputs.inlineedit", ["seEventHelperService"]).directive(
 		element.popover({
 			trigger: "manual",
 			content: popoverElement,
-			placement: "top",
+			placement: "left",
 			html: true
 		});
 	}
