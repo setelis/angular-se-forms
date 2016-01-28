@@ -14,7 +14,7 @@ angular.module("seForms.confirmation", ["seEventHelperService"]).directive("seCo
 				}
 			}
 			function createQuestion(message) {
-				var result = $("<ul />", {"class": "dropdown-menu"});
+				var result = $("<ul />", {"class": "dropdown-menu se-confirmation-wrapper"});
 				result.append($("<li/>").append(message));
 
 				var group = $("<div />", {"class": "btn-group", "role": "group"});

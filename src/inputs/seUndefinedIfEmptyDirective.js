@@ -1,4 +1,4 @@
-angular.module("seForms.undefinedifempty", []).directive("seUndefinedIfEmpty", function() {
+angular.module("seForms.inputs.undefinedifempty", []).directive("seUndefinedIfEmpty", function() {
 	"use strict";
 
 	return {

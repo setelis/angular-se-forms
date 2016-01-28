@@ -1,4 +1,4 @@
-angular.module("seForms.checkbox", []).directive("seCheckboxList", function($parse) {
+angular.module("seForms.inputs.checkbox", []).directive("seCheckboxList", function($parse) {
 	"use strict";
 	function getCheckboxHolder(scope, attrs) {
 		var result = $parse(attrs.seCheckboxList)(scope);

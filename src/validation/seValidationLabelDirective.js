@@ -36,7 +36,7 @@ angular.module("seForms.validation.label", ["seForms.validation.constraints.serv
 	}
 	return {
 		restrict: "A",
-		templateUrl: "seValidationLabelDirective.html",
+		templateUrl: "validation/seValidationLabelDirective.html",
 		replace: true,
 		require: "^form",
 		scope: {
