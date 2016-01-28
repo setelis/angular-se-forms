@@ -1,10 +1,10 @@
 {
   "name": "angular-se-forms",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "dependencies": {
     "angular": "~1.4.3",
     "angular-sanitize": "~1.4.3",
-    "angular-se-event-helper-service": "~0.0.1",
+    "angular-se-events": "~0.0.2",
     "angular-translate": "~2.7.2",
     "bootstrap": "~3.3.5",
     "lodash": "~3.10.1",
@@ -48,7 +48,10 @@
     "forms",
     "validation",
     "password",
-    "equality"
+    "equality",
+    "inline editing",
+    "edit",
+    "reference data"
   ],
   "license": "MIT",
   "ignore": [
