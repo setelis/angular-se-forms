@@ -3,7 +3,11 @@ angular.module("seFormsDemoApp", ["seForms", "ngAnimate", "restangular"]).contro
 	var controller = this;
 
 	function initState() {
+		controller.member = {
+			comment: "Hello"
+		};
 	}
+
 	function atachMethods() {
 		controller.save = function() {
 			alert("saved!");
@@ -82,6 +86,16 @@ angular.module("seForms.validation.constraints.service.configuration", []).value
 		},
 		info: {
 			constraints: []
+		},
+		comment: {
+			constraints: [{
+				name: "required",
+				value: "true"
+			}, {
+				name: "maxlength",
+				value: 50
+			}]
 		}
+
 	}
 });

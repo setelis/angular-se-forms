@@ -35,7 +35,8 @@
      "src/seFormsTranslations.en.js",
      "src/seFormsTranslations.js",
      "src/seConfirmationDirective.js",
-     "gen/seFormsHtml.js"
+     "gen/seFormsHtml.js",
+     "css/seForms.css"
   ],
 
   "keywords": [

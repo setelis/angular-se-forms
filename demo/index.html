@@ -4,6 +4,7 @@
 		<title>seFormsDemoApp</title>
 
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css" />
+		<link rel="stylesheet" href="../css/seForms.css" />
 		<style>
 			.highlighted.has-error input {
 				border-color: #ff0000;
@@ -23,7 +24,7 @@
 
 		</p>
 
-		<form name="exampleForm" data-se-validation-form="MemberDTO">
+		<form name="exampleForm" novalidate data-se-validation-form="MemberDTO">
 			<div class="">
 				required:
 				<input data-ng-model="demoCtrl.member.name" />
@@ -51,7 +52,20 @@
 						data-ng-model="demoCtrl.member.$$passwordAgain" />
 			</div>
 
+			<div>
+				Inline edit:
+				<div data-se-inline-edit style="display: inline;">
+					{{demoCtrl.member.comment}}
+					<div data-se-inline-edit-form>
+						<div data-se-form-validation="MemberDTO">
+							<div>
+								<input type="text" class="form-control" data-ng-model="demoCtrl.member.comment" />
+							</div>
+						</div>
+					</div>
+				</div>
 
+			</div>
 
 			alert() will be called only if validation is passed:
 			action should be confirmed too:
@@ -93,7 +107,8 @@
 		<script src="../src/validation/seValidationLabelDirective.js"></script>
       <script src="../src/validation/seValidationButtonDirective.js"></script>
       <script src="../src/validation/seValidationFormDirective.js"></script>
-      <script src="../src/inputs/seUndefinedIfEmptyDirective.js"></script>
+		<script src="../src/inputs/seUndefinedIfEmptyDirective.js"></script>
+		<script src="../src/inputs/seInlineEditDirective.js"></script>
       <script src="../src/validation/seValidateEqualityDirective.js"></script>
       <script src="../src/validation/seValidateExternalDirective.js"></script>
       <script src="../src/seFormsTranslations.bg.js"></script>
