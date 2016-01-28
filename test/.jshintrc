@@ -45,6 +45,7 @@
 		"by": false,
 		"$": false,
 		"_": false,
+		"JSON": false,
 		"module": false,
 		"require": false
 	}
