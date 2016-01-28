@@ -133,7 +133,7 @@ describe("seValidationForm", function () {
 		scope = $rootScope.$new();
 		$compile = _$compile_;
 		$httpBackend = _$httpBackend_;
-		$httpBackend.when("GET", "seValidationLabelDirective.html").respond(200, "<div></div>");
+		$httpBackend.when("GET", "validation/seValidationLabelDirective.html").respond(200, "<div></div>");
 	}));
 
 

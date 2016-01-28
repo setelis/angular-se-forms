@@ -17,7 +17,7 @@ describe("seValidationLabel", function () {
 	}));
 
 	beforeEach(inject(function ($templateCache) {
-		$templateCache.put("seValidationLabelDirective.html",
+		$templateCache.put("validation/seValidationLabelDirective.html",
 			"<span><label class='control-label' data-ng-if='errorMessage'>"+
 			"{{('validations.' + errorMessage) | translate:errorMessageContext}}</label></span>");
 	}));
