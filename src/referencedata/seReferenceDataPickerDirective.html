@@ -1,0 +1,11 @@
+<!-- there should be always . in ng-model! -->
+<div data-ui-select data-ng-model="directive.selected" data-theme="bootstrap"
+	class="ce-ui-select">
+	<div data-ui-select-match data-placeholder="{{('seReferenceData.types.' + type + '.placeholder') | translate}}"
+		data-allow-clear="true">
+		{{directive.selected.label}}
+	</div>
+	<div data-ui-select-choices data-repeat="referenceData in referenceDatum | filter: {label: $select.search} | limitTo: 30">
+		<div data-ng-bind-html="referenceData.label | highlight: $select.search"></div>
+	</div>
+</div>

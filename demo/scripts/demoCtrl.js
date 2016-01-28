@@ -18,8 +18,8 @@ angular.module("seFormsDemoApp", ["seForms", "ngAnimate", "restangular"]).contro
 	atachMethods();
 }).config(function(RestangularProvider) {
 	"use strict";
-	// Set default server URL for 'logs/' endpoint
-	RestangularProvider.setBaseUrl("http://private-5150df-senotifications.apiary-mock.com");
+	// Set default server URL for 'logs/' and 'referencedatum' endpoint
+	RestangularProvider.setBaseUrl("http://private-c933e-seforms.apiary-mock.com");
 }).config(function($translateProvider) {
 	"use strict";
 	$translateProvider.preferredLanguage("en");
@@ -27,7 +27,8 @@ angular.module("seFormsDemoApp", ["seForms", "ngAnimate", "restangular"]).contro
 	$translateProvider.translations("en", {
 		"button.ok": "OK",
 		"button.cancel": "Cancel",
-		"label.confirm": "Are you sure?"
+		"label.confirm": "Are you sure?",
+		"seReferenceData.types.countries.placeholder": "Select country"
 	});
 
 });
@@ -94,6 +95,12 @@ angular.module("seForms.validation.constraints.service.configuration", []).value
 			}, {
 				name: "maxlength",
 				value: 50
+			}]
+		},
+		country: {
+			constraints: [{
+				name: "required",
+				value: "true"
 			}]
 		}
 

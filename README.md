@@ -25,6 +25,7 @@ Form and validation tools used in many Setelis projects.
  - Lodash
  - bootstrap, optional
  - angular-animate, optional - see the demo http://setelis.github.io/angular-se-notifications/demo
+ - angular-ui-select, angular-sanitize - reference data picker
 
 # For developers:
 # Setup
