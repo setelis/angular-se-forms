@@ -16,77 +16,86 @@
 
 		<div class="notifications se-animation-showhide" data-se-notifications data-se-notifications-position="BAR"></div>
 
-		<p>
-			value:
-			{{demoCtrl.member | json}}
-		</p>
-		<p>
-			Click the button without entering information:
-
-		</p>
-
-		<form name="exampleForm" novalidate data-se-validation-form="MemberDTO">
-			<div class="">
-				required:
-				<input data-ng-model="demoCtrl.member.name" />
-			</div>
-			<div class="">
-				required, number:
-				<input data-ng-model="demoCtrl.member.number" />
-
-			</div>
-
-			<div class="">
-				required, email:
-				<input data-ng-model="demoCtrl.member.email" />
-			</div>
-
-			<div>
-				password:
-					<input type="password"
-						data-ng-model="demoCtrl.member.password" />
-			</div>
-			<div>
-				retype password:
-					<input type="password"
-						data-se-validate-equality="demoCtrl.member.password"
-						data-ng-model="demoCtrl.member.$$passwordAgain" />
-			</div>
-
-			<div class="form-group col-sm-12">
-				<label class="col-sm-2 control-label">Inline edit</label>
-				<div class="col-sm-10">
-					<div data-se-inline-edit style="display: inline;">
-						{{demoCtrl.member.comment}}
-						<div data-se-inline-edit-form>
-							<div data-se-form-validation="MemberDTO">
-								<div>
-									<input type="text" class="form-control" data-ng-model="demoCtrl.member.comment" />
+		<div class="col-sm-12">
+			<div class="col-sm-4 col-sm-offset-4">
+				<div class="panel panel-default" >
+					<div class="panel-heading">Click the button without entering information:</div>
+					<div class="panel-body">
+						<form name="exampleForm" novalidate data-se-validation-form="MemberDTO">
+							<div class="form-group">
+								<label>value:</label>
+								<p>
+									{{demoCtrl.member | json}}
+								</p>
+							</div>
+							<div class="form-group">
+								<label for="exampleFormName">required</label>
+								<input type="text" class="form-control" id="exampleFormName" data-ng-model="demoCtrl.member.name">
+							</div>
+							<div class="form-group">
+								<label for="exampleFormNumber">required, number</label>
+								<input type="text" class="form-control" id="exampleFormNumber" data-ng-model="demoCtrl.member.number">
+							</div>
+							<div class="form-group">
+								<label for="exampleFormEmail">required, email</label>
+								<input type="text" class="form-control" id="exampleFormEmail" data-ng-model="demoCtrl.member.email">
+							</div>
+							<div class="form-group">
+								<label for="exampleFormPassword">password</label>
+								<input type="password" class="form-control" id="exampleFormPassword" data-ng-model="demoCtrl.member.password">
+							</div>
+							<div class="form-group">
+								<label for="exampleForm$$passwordAgain">retype password</label>
+								<input type="password" class="form-control" id="exampleForm$$passwordAgain"
+									data-se-validate-equality="demoCtrl.member.password" data-ng-model="demoCtrl.member.$$passwordAgain">
+							</div>
+							<div class="form-group">
+								<label>Inline edit</label>
+								<div data-se-inline-edit style="display: inline;">
+									{{demoCtrl.member.comment}}
+									<div data-se-inline-edit-form>
+										<div data-se-form-validation="MemberDTO">
+											<div>
+												<input type="text" class="form-control" data-ng-model="demoCtrl.member.comment" />
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
+							<div class="form-group">
+								<label>Reference data</label>
+								<div data-ng-model="demoCtrl.member.country" data-se-reference-data-picker="countries"></div>
+							</div>
+							<div class="form-group">
+								alert() will be called only if validation is passed:
+								action should be confirmed too:
+
+								<button type="submit" class="btn btn-default"
+									data-se-confirmation data-se-validation-button
+									data-ng-click="demoCtrl.save()">Save</button>
+								<a data-ng-if="TODOmembersimplemented" class="btn-link" data-ui-sref="home.authenticate.passwordreset.generatetoken">{{ 'authenticate.login.header.forgotPassword' | translate }}</a>
+							</div>
+
+						</form>
 					</div>
 				</div>
 			</div>
+		</div>
 
-			<div class="form-group col-sm-12">
-				<label class="col-sm-2 control-label">Reference data</label>
-				<div class="col-sm-10">
-					<div data-ng-model="demoCtrl.member.country" data-se-reference-data-picker="countries"></div>
+		<div class="col-sm-12">
+			<div class="col-sm-4 col-sm-offset-4">
+				<div class="panel panel-default" >
+					<div class="panel-heading">if empty string - value will be undefined:</div>
+					<div class="panel-body">
+						<input data-ng-model="demoCtrl.undefinedifempty" data-se-undefined-if-empty />
+						undefined if empty: {{demoCtrl.undefinedifempty | json}}
+					</div>
 				</div>
 			</div>
-
-			alert() will be called only if validation is passed:
-			action should be confirmed too:
-			<div>
-				<button type="button" data-ng-click="demoCtrl.save()" data-se-confirmation data-se-validation-button>Save</button>
-			</div>
-		</form>
+		</div>
 
 
-		if empty string - value will be undefined:
-		<input data-ng-model="demoCtrl.undefinedifempty" data-se-undefined-if-empty />
-		undefined if empty: {{demoCtrl.undefinedifempty | json}}
+
 		<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.js"></script>
