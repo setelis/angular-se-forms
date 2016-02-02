@@ -20,6 +20,7 @@ module.exports = function(config) {
          "bower_components/angular-translate/angular-translate.js",
          "bower_components/angular-se-events/src/seEventsModule.js",
          "bower_components/angular-se-events/src/*.js",
+         "src/seFormsModule.js",
          "src/**/*.js",
          //"test/mock/**/*.js",
          "test/spec/**/*.js"

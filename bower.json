@@ -1,11 +1,11 @@
 {
   "name": "angular-se-forms",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "dependencies": {
     "angular": "~1.4.3",
     "angular-sanitize": "~1.4.3",
     "angular-se-notifications": "~0.0.6",
-    "angular-se-events": "~0.0.2",
+    "angular-se-events": "~0.0.5",
     "angular-translate": "~2.7.2",
     "bootstrap": "~3.3.5",
     "lodash": "~3.10.1",

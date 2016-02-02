@@ -95,6 +95,29 @@
 		</div>
 
 
+		<div class="col-sm-12">
+			<div class="col-sm-4 col-sm-offset-4">
+				<div class="panel panel-default" >
+					<div class="panel-heading">Form is autosaved everytime it is changed - see network activity</div>
+					<div class="panel-body">
+						<form name="preferencesForm" novalidate class="panel-body" data-se-validation-form="PreferencesDTO"
+							data-se-form-auto-submit="demoCtrl.updatePreferences()"
+							data-se-form-auto-submit-model="demoCtrl.preferences"
+						>
+							<div class="form-group">
+								<label for="preferencesFormColor">Favourite color</label>
+								<input type="text" class="form-control" id="preferencesFormColor" data-ng-model="demoCtrl.preferences.color">
+							</div>
+
+							<div class="form-group">
+								<label for="preferencesFormPet">Favourite pet</label>
+								<input type="text" class="form-control" id="preferencesFormPet" data-ng-model="demoCtrl.preferences.pet">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
 
 		<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
@@ -143,6 +166,8 @@
       <script src="../src/seFormsTranslations.en.js"></script>
 		<script src="../src/seFormsTranslations.js"></script>
 		<script src="../src/seConfirmationDirective.js"></script>
+		<script src="../src/seFormAutoSubmitDirective.js"></script>
+
 		<script src="../gen/seFormsHtml.js"></script>
 
 		<script src="scripts/demoCtrl.js"></script>

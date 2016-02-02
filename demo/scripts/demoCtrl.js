@@ -1,4 +1,4 @@
-angular.module("seFormsDemoApp", ["seForms", "ngAnimate", "restangular"]).controller("DemoCtrl", function () {
+angular.module("seFormsDemoApp", ["seForms", "ngAnimate", "restangular"]).controller("DemoCtrl", function (Restangular) {
 	"use strict";
 	var controller = this;
 
@@ -11,6 +11,9 @@ angular.module("seFormsDemoApp", ["seForms", "ngAnimate", "restangular"]).contro
 	function atachMethods() {
 		controller.save = function() {
 			alert("saved!");
+		};
+		controller.updatePreferences = function() {
+			return Restangular.one("preferences").customPUT(controller.preferences);
 		};
 	}
 
@@ -104,5 +107,25 @@ angular.module("seForms.validation.constraints.service.configuration", []).value
 			}]
 		}
 
+	},
+	PreferencesDTO: {
+		color: {
+			constraints: [{
+				name: "required",
+				value: "true"
+			}, {
+				name: "maxlength",
+				value: 50
+			}]
+		},
+		pet: {
+			constraints: [{
+				name: "required",
+				value: "true"
+			}, {
+				name: "maxlength",
+				value: 50
+			}]
+		}
 	}
 });
