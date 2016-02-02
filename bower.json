@@ -1,6 +1,6 @@
 {
   "name": "angular-se-forms",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "dependencies": {
     "angular": "~1.4.3",
     "angular-sanitize": "~1.4.3",
@@ -41,6 +41,7 @@
     "src/seFormsTranslations.en.js",
     "src/seFormsTranslations.js",
     "src/seConfirmationDirective.js",
+    "src/seFormAutoSubmitDirective.js",
     "gen/seFormsHtml.js",
     "css/seForms.css"
   ],
