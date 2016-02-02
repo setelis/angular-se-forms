@@ -81,8 +81,10 @@ angular.module("seForms.validation.button", ["seEvents.seEventHelperService"]).d
 				}
 				if (scope[formName].$invalid || !customValidation()) {
 					SeEventHelperService.stopEvent(event);
-
-					scope.$emit("$seValidationButtonEvent", element, errorsToLog(scope[formName].$error));
+					
+					SeEventHelperService.safeApply(scope, function() {
+						scope.$emit("$seValidationButtonEvent", element, errorsToLog(scope[formName].$error));
+					});
 
 					SeEventHelperService.safeApply(scope, showError);
 				} else {
