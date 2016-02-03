@@ -22,6 +22,10 @@ angular.module("seForms.autosubmit", ["seEvents.seEventHelperService"]).directiv
 			var submitPromise;
 			var waiting;
 			SeEventHelperService.whenChanged(scope, attrs.seFormAutoSubmitModel, function() {
+				if (formController.$pristine) {
+					// form should not be submitted if pristine
+					return;
+				}
 				if (timeoutPromise) {
 					$timeout.cancel(timeoutPromise);
 					timeoutPromise = null;

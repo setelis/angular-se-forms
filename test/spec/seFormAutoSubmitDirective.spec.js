@@ -34,7 +34,7 @@ describe("seFormAutoSubmit", function () {
 		$timeout.flush(DEFAULT_TIMEOUT + DEFAULT_TIMEOUT_DELTA);
 
 		expect(scope.ctrl.update.calls.count()).toBe(0);
-
+		formController.$setDirty();
 		scope.ctrl.data = {
 			sample: "changed"
 		};
@@ -51,6 +51,31 @@ describe("seFormAutoSubmit", function () {
 
 		expect(scope.ctrl.update.calls.count()).toBe(1);
 	}));
+	it("should not call update function if form is pristine", inject(function () {
+		element = angular.element("<form name='sampleForm' data-se-form-auto-submit='ctrl.update()' data-se-form-auto-submit-model='ctrl.data'>" +
+			"<input id='sampleInput' name='sampleInput' data-ng-required='true' data-ng-model='ctrl.data.sample'></input></form>");
+		element = $compile(element)(scope);
+		scope.$digest();
+		var formController = element.data().$formController;
+
+		expect(scope.ctrl.update.calls.count()).toBe(0);
+
+		$timeout.flush(DEFAULT_TIMEOUT + DEFAULT_TIMEOUT_DELTA);
+
+		expect(scope.ctrl.update.calls.count()).toBe(0);
+		formController.$setPristine();
+		scope.ctrl.data = {
+			sample: "changed"
+		};
+		scope.$digest();
+		expect(formController.showModelValidation).not.toBe(true);
+
+		$timeout.flush(DEFAULT_TIMEOUT + DEFAULT_TIMEOUT_DELTA);
+		expect(formController.showModelValidation).not.toBe(true);
+
+		expect(scope.ctrl.update.calls.count()).toBe(0);
+	}));
+
 	it("should listen for changes and call update function - second level change", inject(function () {
 		scope.ctrl.data = {
 			a: {}
@@ -67,7 +92,7 @@ describe("seFormAutoSubmit", function () {
 		$timeout.flush(DEFAULT_TIMEOUT + DEFAULT_TIMEOUT_DELTA);
 
 		expect(scope.ctrl.update.calls.count()).toBe(0);
-
+		formController.$setDirty();
 		scope.ctrl.data.a.b = "changed";
 		scope.$digest();
 		expect(formController.showModelValidation).not.toBe(true);
@@ -97,7 +122,7 @@ describe("seFormAutoSubmit", function () {
 		$timeout.flush(DEFAULT_TIMEOUT + DEFAULT_TIMEOUT_DELTA);
 
 		expect(scope.ctrl.update.calls.count()).toBe(0);
-
+		formController.$setDirty();
 		scope.ctrl.data.sample = "changed";
 		scope.$digest();
 		expect(formController.showModelValidation).not.toBe(true);
@@ -128,7 +153,7 @@ describe("seFormAutoSubmit", function () {
 		expect(scope.ctrl.update.calls.count()).toBe(0);
 
 		inputController.$setValidity("sampleValidity", false);
-
+		formController.$setDirty();
 		scope.ctrl.data = {
 			sample: "changed"
 		};
@@ -155,6 +180,8 @@ describe("seFormAutoSubmit", function () {
 			return formController;
 		}
 		function changeValue() {
+			formController.$setDirty();
+
 			scope.ctrl.data = {
 				sample: "changed"
 			};
@@ -206,6 +233,8 @@ describe("seFormAutoSubmit", function () {
 			return formController;
 		}
 		function changeValue() {
+			formController.$setDirty();
+
 			scope.ctrl.data = {
 				sample: "changed"
 			};
@@ -226,7 +255,7 @@ describe("seFormAutoSubmit", function () {
 			expect(scope.ctrl.update.calls.count()).toBe(1);
 		}
 
-		init();
+		var formController = init();
 		changeValue();
 		changeValueBeforePromiseCompletes();
 		updateAgainAfterPromise();
@@ -241,6 +270,7 @@ describe("seFormAutoSubmit", function () {
 			expect(scope.ctrl.update.calls.count()).toBe(0);
 
 			inputController.$setValidity("sampleValidity", false);
+			formController.$setDirty();
 
 			scope.ctrl.data = {
 				sample: "changed"
