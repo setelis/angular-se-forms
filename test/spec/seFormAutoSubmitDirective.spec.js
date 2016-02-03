@@ -51,6 +51,38 @@ describe("seFormAutoSubmit", function () {
 
 		expect(scope.ctrl.update.calls.count()).toBe(1);
 	}));
+	it("should listen for changes and call update function - second level change", inject(function () {
+		scope.ctrl.data = {
+			a: {}
+		};
+
+		element = angular.element("<form name='sampleForm' data-se-form-auto-submit='ctrl.update()' data-se-form-auto-submit-model='ctrl.data'>" +
+			"<input id='sampleInput' name='sampleInput' data-ng-required='true' data-ng-model='ctrl.data.a.b'></input></form>");
+		element = $compile(element)(scope);
+		scope.$digest();
+		var formController = element.data().$formController;
+
+		expect(scope.ctrl.update.calls.count()).toBe(0);
+
+		$timeout.flush(DEFAULT_TIMEOUT + DEFAULT_TIMEOUT_DELTA);
+
+		expect(scope.ctrl.update.calls.count()).toBe(0);
+
+		scope.ctrl.data.a.b = "changed";
+		scope.$digest();
+		expect(formController.showModelValidation).not.toBe(true);
+
+		$timeout.flush(DEFAULT_TIMEOUT - DEFAULT_TIMEOUT_DELTA);
+		expect(formController.showModelValidation).not.toBe(true);
+
+		expect(scope.ctrl.update.calls.count()).toBe(0);
+
+		$timeout.flush(DEFAULT_TIMEOUT_DELTA * 2);
+		expect(formController.showModelValidation).not.toBe(true);
+
+		expect(scope.ctrl.update.calls.count()).toBe(1);
+	}));
+
 	it("should listen for changes and call update function - when there is already data", inject(function () {
 		scope.ctrl.data = {};
 

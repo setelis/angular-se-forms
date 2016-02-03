@@ -21,7 +21,7 @@ angular.module("seForms.autosubmit", ["seEvents.seEventHelperService"]).directiv
 			var timeoutPromise;
 			var submitPromise;
 			var waiting;
-			SeEventHelperService.whenChangedCollection(scope, attrs.seFormAutoSubmitModel, function() {
+			SeEventHelperService.whenChanged(scope, attrs.seFormAutoSubmitModel, function() {
 				if (timeoutPromise) {
 					$timeout.cancel(timeoutPromise);
 					timeoutPromise = null;
@@ -50,7 +50,7 @@ angular.module("seForms.autosubmit", ["seEvents.seEventHelperService"]).directiv
 					}
 					toExecute();
 				}, options.debounce);
-			});
+			}, true);
 		}
 	};
 });
