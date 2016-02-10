@@ -9,21 +9,22 @@ angular.module("seForms.inputs.inlineedit", ["seEvents.seEventHelperService"]).d
 		function formController() {
 			return popoverElement.data("$formController");
 		}
+		var saveMethod = function() {
+			if (formController().$invalid) {
+				SeEventHelperService.safeApply(scope, function() {
+					formController()[SHOW_MODEL_VALIDATION_KEY] = true;
+				});
+
+				return;
+			}
+			element.addClass(CHANGED_CELL_CLASS_NAME);
+			element.popover("hide");
+		}
 		function addButtons(popoverElement) {
 			var emptyRow =  $("<div class=\"col-sm-12\">&nbsp;</div>");
 
 			var save = $("<span class=\"pull-right\"> <button type=\"submit\" class=\"btn btn-red\"><span class=\"glyphicon glyphicon-ok\"></span></button></span>");
-			save.click(function() {
-				if (formController().$invalid) {
-					SeEventHelperService.safeApply(scope, function() {
-						formController()[SHOW_MODEL_VALIDATION_KEY] = true;
-					});
-
-					return;
-				}
-				element.addClass(CHANGED_CELL_CLASS_NAME);
-				element.popover("hide");
-			});
+			save.click(saveMethod);
 
 			var cancel = $("<span class=\"pull-right\"> <button type=\"button\" class=\"btn btn-default\"><span class=\"glyphicon glyphicon-remove\"></span></button></span>");
 			cancel.click(function() {
@@ -73,6 +74,14 @@ angular.module("seForms.inputs.inlineedit", ["seEvents.seEventHelperService"]).d
 
 			element.popover("show");
 			popoverElement.find("[data-ng-model]:first").focus();
+
+			//submit on enter
+			popoverElement.keypress(function (e) {
+				if (e.which == 13) {
+					saveMethod();
+					return false;
+				}
+			});
 		});
 		element.popover({
 			trigger: "manual",
@@ -86,6 +95,7 @@ angular.module("seForms.inputs.inlineedit", ["seEvents.seEventHelperService"]).d
 		compile: function(element) {
 			function wrapAndHidFormMarker(formMarker) {
 				var form = $("<div />", {"data-ng-form": "seInlineEdit"+(++uniqueFormName)});
+				form.attr("data-ng-submit", "saveMethod()");
 				formMarker.wrapInner(form);
 				formMarker.hide();
 			}
@@ -95,7 +105,6 @@ angular.module("seForms.inputs.inlineedit", ["seEvents.seEventHelperService"]).d
 				throw "seInlineEdit: no form";
 			}
 			wrapAndHidFormMarker(formMarker);
-
 			return link;
 		}
 	};
