@@ -95,7 +95,6 @@ angular.module("seForms.inputs.inlineedit", ["seEvents.seEventHelperService"]).d
 		compile: function(element) {
 			function wrapAndHidFormMarker(formMarker) {
 				var form = $("<div />", {"data-ng-form": "seInlineEdit"+(++uniqueFormName)});
-				form.attr("data-ng-submit", "saveMethod()");
 				formMarker.wrapInner(form);
 				formMarker.hide();
 			}
