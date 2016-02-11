@@ -19,7 +19,7 @@ angular.module("seForms.inputs.inlineedit", ["seEvents.seEventHelperService"]).d
 			}
 			element.addClass(CHANGED_CELL_CLASS_NAME);
 			element.popover("hide");
-		}
+		};
 		function addButtons(popoverElement) {
 			var emptyRow =  $("<div class=\"col-sm-12\">&nbsp;</div>");
 
@@ -77,7 +77,7 @@ angular.module("seForms.inputs.inlineedit", ["seEvents.seEventHelperService"]).d
 
 			//submit on enter
 			popoverElement.keypress(function (e) {
-				if (e.which == 13) {
+				if (e.which === 13) {
 					saveMethod();
 					return false;
 				}
