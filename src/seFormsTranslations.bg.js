@@ -7,7 +7,7 @@ angular.module("seForms.translations.bg", ["pascalprecht.translate"]).config(fun
 		"seValidationForm.max": "Твърде много",
 		"seValidationForm.min": "Твърде малко",
 		"seValidationForm.maxlength": "Твърде дълго",
-		"seValidationForm.minLength": "Твърде късо",
+		"seValidationForm.minlength": "Твърде късо",
 		"seValidationForm.number": "Въведете число"
 	});
 });

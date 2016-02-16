@@ -7,7 +7,7 @@ angular.module("seForms.translations.en", ["pascalprecht.translate"]).config(fun
 		"seValidationForm.max": "Too much",
 		"seValidationForm.min": "Too little",
 		"seValidationForm.maxlength": "Too long",
-		"seValidationForm.minLength": "Too short",
+		"seValidationForm.minlength": "Too short",
 		"seValidationForm.number": "Must be a number"
 	});
 });
