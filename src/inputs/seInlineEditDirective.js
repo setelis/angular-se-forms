@@ -4,7 +4,7 @@ angular.module("seForms.inputs.inlineedit", ["seEvents.seEventHelperService"]).d
 	var SHOW_MODEL_VALIDATION_KEY = "showModelValidation";
 	var CHANGED_CELL_CLASS_NAME = "se-inline-edit-dirty";
 
-	function link(scope, element) {
+	function link(scope, element, attrs) {
 		var values = {};
 		function formController() {
 			return popoverElement.data("$formController");
@@ -16,6 +16,10 @@ angular.module("seForms.inputs.inlineedit", ["seEvents.seEventHelperService"]).d
 				});
 
 				return;
+			}
+			var postSaveMethod = $parse(attrs.seInlineEdit);
+			if (postSaveMethod) {
+				postSaveMethod(scope);
 			}
 			element.addClass(CHANGED_CELL_CLASS_NAME);
 			element.popover("hide");
